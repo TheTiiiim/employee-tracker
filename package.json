@@ -1,0 +1,20 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "A CLI for viewing and managing the departments, roles, and employees.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Tim Scott",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "inquirer": "^8.0.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
