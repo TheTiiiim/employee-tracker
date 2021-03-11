@@ -1,7 +1,7 @@
 {
   "name": "employee-tracker",
   "version": "1.0.0",
-  "description": "A CLI for viewing and managing the departments, roles, and employees.",
+  "description": "A CLI for viewing and managing departments, roles, and employees.",
   "main": "index.js",
   "scripts": {
     "test": "jest"
