@@ -1,6 +1,6 @@
 const { connection, tables } = require("./lib/db");
-const mainMenu = require("./lib/Menu");
-const displayData = require("./lib/actions/View-All");
+const queries = require("./lib/queries");
+const menu = require("./lib/menu");
 
 // connection
 connection.connect(async (err) => {
@@ -13,21 +13,22 @@ connection.connect(async (err) => {
 
 	try {
 		// cli loop
-		const { action, table } = await mainMenu.getAction();
+		const { action, table } = await menu.getAction();
 
 		switch (action) {
 			// Add
-			case mainMenu.actions[0]:
+			case menu.actions[0]:
 				break;
 			// View-All
-			case mainMenu.actions[1]:
-				await displayData(table);
+			case menu.actions[1]:
+				const { results, fields } = await queries.getData(table);
+				console.table(results);
 				break;
 			// Update
-			case mainMenu.actions[2]:
+			case menu.actions[2]:
 				break;
 			// Delete
-			case mainMenu.actions[3]:
+			case menu.actions[3]:
 				break;
 		}
 	}
