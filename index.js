@@ -21,6 +21,7 @@ connection.connect(async (err) => {
 				break;
 			// View-All
 			case mainMenu.actions[1]:
+				await displayData(table);
 				break;
 			// Update
 			case mainMenu.actions[2]:
