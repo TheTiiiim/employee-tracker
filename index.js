@@ -1,6 +1,6 @@
 const { connection, tables } = require("./lib/db");
-const mainMenu = require("./lib/menus/main");
-const displayData = require("./lib/displayData");
+const mainMenu = require("./lib/Menu");
+const displayData = require("./lib/actions/View-All");
 
 // connection
 connection.connect(async (err) => {
