@@ -1,17 +1,9 @@
-const { connection, tables } = require("./lib/db");
-const queries = require("./lib/queries");
+const db = require("./lib/db");
 const menu = require("./lib/menu");
 
-// connection
-connection.connect(async (err) => {
-	if (err) {
-		console.error('error connecting to db: ' + err.stack);
-		return;
-	}
-
-	console.log('connected to db as id ' + connection.threadId);
-
+async function main() {
 	try {
+		await db.init();
 		// cli loop
 		const { action, table } = await menu.getAction();
 
@@ -21,7 +13,7 @@ connection.connect(async (err) => {
 				break;
 			// View-All
 			case menu.actions[1]:
-				const { results, fields } = await queries.getData(table);
+				const { results, fields } = await db.getData(table);
 				console.table(results);
 				break;
 			// Update
@@ -32,7 +24,10 @@ connection.connect(async (err) => {
 				break;
 		}
 	}
-	catch (err) { console.error(err) }
+	catch (err) {
+		console.error(err);
+	}
+	db.close();
+}
 
-	connection.end();
-});
+main();
