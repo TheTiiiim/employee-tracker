@@ -13,8 +13,7 @@ async function main() {
 				break;
 			// View-All
 			case menu.actions[1]:
-				const data = db.getTable(table).getData();
-				console.table(data);
+				const data = db.getTable(table).displayData();
 				break;
 			// Update
 			case menu.actions[2]:
