@@ -14,10 +14,11 @@ async function main() {
 			switch (action) {
 				// Add
 				case menu.actions[0]:
+					await menu.createDatum(table);
 					break;
 				// View-All
 				case menu.actions[1]:
-					const data = db.getTable(table).displayData();
+					await db.getTable(table).displayData();
 					break;
 				// Update
 				case menu.actions[2]:
