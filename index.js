@@ -7,21 +7,22 @@ async function main() {
 
 		let exit = false;
 
+		// cli loop
 		do {
-			// cli loop
 			const { action, table } = await menu.getAction();
 
 			switch (action) {
-				// Add
-				case menu.actions[0]:
-					await menu.createDatum(table);
-					break;
 				// View-All
+				case menu.actions[0]:
+					await db.getTable(table).displayItems();
+					break;
+				// Add
 				case menu.actions[1]:
-					await db.getTable(table).displayData();
+					await menu.createItem(table);
 					break;
 				// Update
 				case menu.actions[2]:
+					await menu.updateItem(table);
 					break;
 				// Delete
 				case menu.actions[3]:
