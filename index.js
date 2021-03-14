@@ -14,6 +14,7 @@ async function main() {
 			switch (action) {
 				// View-All
 				case menu.actions[0]:
+					// TODO: create menu options to view-all or veiw grouped by linked columns
 					await db.getTable(table).displayItems();
 					break;
 				// Add
@@ -26,6 +27,7 @@ async function main() {
 					break;
 				// Delete
 				case menu.actions[3]:
+					await menu.deleteItem(table);
 					break;
 				case "exit":
 					exit = true;
